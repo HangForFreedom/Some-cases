@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>CSS旋转信息简介</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <style>
+        body{
+            margin: 0;
+        }
+        .message{
+            width: 940px;
+            height: 300px;
+            margin: 100px auto;
+        }
+        .messagelist{
+            float: left;
+            width: 300px;
+            height: 300px;
+            background-color: #000;
+            margin-right: 20px;
+            perspective: 1000px;
+        }
+        .messagelist:hover .listtext{
+            transform: rotateY(0deg);
+        }
+        .messagelist:hover .listpic{
+            transform: rotateY(-90deg);
+        }
+        .messagelist:nth-child(3){
+            margin-right: 0;
+        }
+        .listpic,.listtext{
+            /*并列选择器：同时选择多个元素并试着相同的属性*/
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            transition: 0.5s; /*过渡：让该元素的属性值在变化时，改变的慢一点*/
+        }
+        .listpic{
+            
+        }
+        .listtext{
+            background-color: rgba(0,0,0,0.6); /*rgba() 最后的值是0~1的值; 0指的是完全透光，1指完全不透光*/
+            transform: rotateY(90deg);
+        }
+        p{
+            margin: 0;
+            padding-top: 90px;
+            font-size: 16px;
+            text-align: center;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="message">
+        <div class="messagelist">
+            <div class="listpic">
+                <img src="images/1.jpg" width="300" height="300" alt="油画">
+            </div>
+            <div class="listtext">
+                <p>Some people believe that showing tough love is an important way to ensure that their children are able to take care of themselves in the future. If you were the recipient of this approach on a regular basis, you might even believe that this has had a positive impact on your life.</p>
+            </div>
+        </div>
+        <div class="messagelist">
+            <div class="listpic">
+                <img src="images/2.jpg" width="300" height="300" alt="油画">
+            </div>
+            <div class="listtext">
+                <p>Some people believe that showing tough love is an important way to ensure that their children are able to take care of themselves in the future. If you were the recipient of this approach on a regular basis, you might even believe that this has had a positive impact on your life.</p>
+            </div>
+        </div>
+        <div class="messagelist">
+            <div class="listpic">
+                <img src="images/3.jpg" width="300" height="300" alt="油画">
+            </div>
+            <div class="listtext">
+                <p>Some people believe that showing tough love is an important way to ensure that their children are able to take care of themselves in the future. If you were the recipient of this approach on a regular basis, you might even believe that this has had a positive impact on your life.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
