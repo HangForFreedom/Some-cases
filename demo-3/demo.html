@@ -1,79 +1,101 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
-	<title>可以输入也可以下拉选择的select</title>
-	<meta name="keywords" content="" />  
-	<meta name="description" content="" />  
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />  
-	<meta name="format-detection" content="telephone=no" />  
-	<meta name="apple-mobile-web-app-capable" content="yes" />  
-	<meta name="apple-mobile-web-app-status-bar-style" content="black">  
-	<meta name="author" content="duanliang, duanliang920.com" /> 
-	<link rel="stylesheet" type="text/css" href="css/jquery-editable-select.min.css">
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="css/demo.css">
+    <meta charset="utf-8">
+    <title>鼠标悬浮特效</title>
+    <meta name="keywords" content="鼠标，悬浮，特效">
+    <meta name="description" content="鼠标悬浮特效网站">
+    <style>
+        .box{
+            width: 846px;
+            height: 300px;
+            margin: 25px auto;
+        }
+        .box .item{
+            float: left;
+            width: 400px;
+            height: 300px;
+        }
+        .box .item img{
+            position: absolute;
+            /*display: block;*/
+            width: 400px;
+            height: 300px;
+            z-index: 1;
+            transition: 0.4s;
+            /*transform: scale(0.4); /*放大到0.4倍*/*/
+        }
+        .box .item:hover img{
+            transform: scale(0.4);
+        }
+        .backbox{
+            position: absolute;
+            width: 400px;
+            height: 300px;
+            background-color: #2c3f52;
+            transition: 0.4s;
+            transform: scale(0.4);
+            color: #fff;
+        }
+        .box .item:hover .backbox{
+            transform: scale(1);
+        }
+        .box .item .backbox h3{
+            margin-top: 20px;
+            padding-left: 20px;
+        }
+        .box .item .backbox p{
+            position: absolute;
+            bottom: 2px;
+            right: 10px;
+            background-color: red;
+        }
+    </style>
 </head>
-<style type="text/css">
-	/*.demo{width:360px;margin:50px auto 10px auto;padding:10px;}
-		.demo p{line-height:30px;}
-		.demo h3{font-size:24px;text-align:center;padding:10px}
-		@media (max-width: 480px){
-		.demo{width:360px;margin:50px auto 10px auto;padding:10px;}
-		.demo img{width:90%}
-		.demo h3{font-size:1.5em;line-height:1.9em}
-	}*/
-</style>
 <body>
-	<div class="header">
-		<div class="header-title">
-			<a href="https://blog.csdn.net/themisery_hang">Hang</a>
-		</div>
-	</div>
-	<div class="main">
-		<a href="https://www.helloweba.net/demo/2016/editable-select/" target="_blank">可以输入也可以下拉选择的select</a>
-		<hr>
-		<div class="main-form">
-			<div class="form-group">
-				<label>程序语言</label>
-				<select class="form-control" id="editable-select">
-					<option>JAVA</option>
-					<option>C</option>
-					<option>C++</option>
-					<option>C#</option>
-					<option>PYTHON</option>
-					<option>HTML&CSS</option>
-					<option>PHP</option>
-				</select>
-			</div>
-			<div class="form-group">
-				<label>课堂学习(支持html)</label>
-				<select class="form-control" id="html">
-					<option>腾讯课堂 - &lt;small&gt;&lt;a href="https://ke.qq.com/" target="_blank" rel="nofollow"&gt;www.alfaromeo.com&lt;/a&gt;&lt;/small&gt;</option>
-					<option>网易云课堂 - &lt;small&gt;&lt;a href="http://study.163.com/" target="_blank" rel="nofollow"&gt;www.alfaromeo.com&lt;/a&gt;&lt;/small&gt;</option>
-					<option>中国大学MOOC -  &lt;small&gt;&lt;a href="https://www.icourse163.org/" target="_blank" rel="nofollow"&gt;www.alfaromeo.com&lt;/a&gt;&lt;/small&gt;</option>
-					<option>我要自学网 -  &lt;small&gt;&lt;a href="http://www.51zxw.net/" target="_blank" rel="nofollow"&gt;www.alfaromeo.com&lt;/a&gt;&lt;/small&gt;</option>
-					<option>百度传课 -  &lt;small&gt;&lt;a href="https://chuanke.baidu.com/" target="_blank" rel="nofollow"&gt;www.alfaromeo.com&lt;/a&gt;&lt;/small&gt;</option>
-				</select>
-			</div>
-		</div>
-	</div>
-
-	<div class="footer">
-		<p>参考链接：<a href="https://www.helloweba.net/demo/2016/editable-select/">可输入也可以下拉选择的select</a></p>
-		<p>详细解释：<a href="https://www.helloweba.net/javascript/348.html">https://www.helloweba.net/javascript/348.html</a></p>
-		<p>jQuery Editable Select项目官网地址：<a href="https://github.com/indrimuska/jquery-editable-select">https://github.com/indrimuska/jquery-editable-select</a></p>
-	</div>
-
-	<script src="https://cdn.bootcss.com/jquery/1.12.1/jquery.min.js"></script>
-	<script src="js/jquery-3.2.1.min.js" type="text/javascript"></script>
-	<script src="js/bootstrap.min.js" type="text/javascript"></script>
-	<script src="js/jquery-editable-select.min.js" type="text/javascript"></script>
-	<script type="text/javascript">
-		$('#editable-select').editableSelect({
-			effects: 'slide'
-		});
-		$('#html').editableSelect();
-	</script>
+    <div class="box">
+        <div class="item">
+            <img src="images/1.png" alt="camera">
+            <div class="backbox">
+                <h3>Setting</h3>
+                <p>By Hang</p>
+            </div>
+        </div>
+        <div class="item">
+            <img src="images/2.png" alt="camera">
+            <div class="backbox">
+                <h3>Setting</h3>
+                <p>By Hang</p>
+            </div>
+        </div>
+        <div class="item">
+            <img src="images/3.png" alt="camera">
+            <div class="backbox">
+                <h3>Setting</h3>
+                <p>By Hang</p>
+            </div>
+        </div>
+        <div class="item">
+            <img src="images/4.png" alt="camera">
+            <div class="backbox">
+                <h3>Setting</h3>
+                <p>By Hang</p>
+            </div>
+        </div>
+        <div class="item">
+            <img src="images/5.png" alt="camera">
+            <div class="backbox">
+                <h3>Setting</h3>
+                <p>By Hang</p>
+            </div>
+        </div>
+        <div class="item">
+            <img src="images/6.png" alt="camera">
+            <div class="backbox">
+                <h3>Setting</h3>
+                <p>By Hang</p>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
