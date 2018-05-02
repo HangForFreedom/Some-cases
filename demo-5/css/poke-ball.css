@@ -1,0 +1,54 @@
+.poke-ball{
+	position: relative;
+	display: flex;
+	/**/
+	justify-content: center;
+	/**/
+	align-items: center;
+	/**/
+	width: 400px;
+	height: 400px;
+	margin: 0 auto;
+	border-radius: 50%;
+	/*圆角半径 左上 右上 右下 左下*/
+	background-image: -webkit-linear-gradient(top,red 50%,#fff 50%);/*渐变色*/
+	/* 背景图片：渐变色*/
+	box-shadow: 0 0 160px -8px #666 inset;
+	/* 盒子阴影：x位移  y位移 羽化程度  半径  颜色  内阴影*/
+	transform-origin: center bottom;
+	/*形变-旋转中心： 横向 纵向 */
+	transform: rotate(15deg);
+	/*顺时针旋转45度*/
+	animation:  arrset 1s linear infinite;
+	/* 动画：动画名称 时长 速度曲线 运动反复*/
+}
+.poke-ball::before{
+	content: ''; /* 激活伪元素*/
+	width: 100%;
+	height: 30px;
+	background-color: black;
+	border-radius: 2px;
+}
+.poke-ball::after{
+	position: absolute;
+	content: '';
+	width: 50px;
+	height: 50px;
+	background-color: #fff;
+	box-shadow: 0 0 0 4px #222,0 0 0 12px #fff,0 0 0 16px #000; 
+	border-radius: 50%;
+	animation: msg 1s infinite;
+}
+
+@keyframes msg{
+	0%{background-color: #fff;}
+	100%{background-color: red;}
+}
+
+@keyframes arrset{
+	0%{transform: rotate(15deg);}
+	25%{transform: rotate(0deg);}
+	50%{transform: rotate(-15deg);}
+	75%{transform: rotate(0deg);}
+	100%{transform: rotate(15deg);}
+}

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>导航栏在页面滚动时消失</title>
+	<link rel="stylesheet" href="css/poke-ball.css">
+	<!-- Bootstrap -->
+	<link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+	<link href="https://v3.bootcss.com/assets/css/docs.min.css" rel="stylesheet">
+	<style>
+		#header{
+			background-color: #f5f5f5;
+			box-shadow: 0px 3px 10px #888;
+		}
+		.header{
+			position:fixed;
+			z-index:10;
+			top:0;
+			display:block;
+			width:100%;
+			-webkit-box-shadow:0 1px 5px rgba(0,0,0,.1);
+			-moz-box-shadow:0 1px 5px rgba(0,0,0,.1);
+		}
+		.navbar-toggle .icon-bar{
+			background-color: #337ab7;
+		}
+		.header.animated{
+			-webkit-animation-duration:.5s;
+			animation-duration:.5s;
+			-webkit-animation-fill-mode:both;
+			animation-fill-mode:both;
+		}
+		.header.animated.slideUp{
+			-webkit-animation-name:slideUp;
+			animation-name:slideUp;
+		}
+		.header.animated.slideDown{
+			-webkit-animation-name:slideDown;
+			animation-name:slideDown;
+		}
+		.main{
+			margin-top: 200px;
+			height: 1000px;
+		}
+
+		@-webkit-keyframes unpinned{
+			0%{-webkit-transform:translateY(0)}100%{-webkit-transform:translateY(50px)}
+		}
+		@keyframes unpinned{
+			0%{-webkit-transform:translateY(0);transform:translateY(0)}100%{-webkit-transform:translateY(50px);transform:translateY(50px)}
+		}
+		@-webkit-keyframes pinned{
+			0%{-webkit-transform:translateY(50px)}100%{-webkit-transform:translateY(0)}
+		}
+		@keyframes pinned{
+			0%{-webkit-transform:translateY(50px);transform:translateY(50px)}
+			100%{-webkit-transform:translateY(0);transform:translateY(0)}
+		}
+		@-webkit-keyframes slideDown{
+			0%{-webkit-transform:translateY(-80px)}
+			100%{-webkit-transform:translateY(0)}
+		}
+		@keyframes slideDown{
+			0%{-webkit-transform:translateY(-80px);transform:translateY(-80px)}
+			100%{-webkit-transform:translateY(0);transform:translateY(0)}
+		}
+		@-webkit-keyframes slideUp{
+			0%{-webkit-transform:translateY(0)}
+			100%{-webkit-transform:translateY(-80px)}
+		}
+		@keyframes slideUp{
+			0%{-webkit-transform:translateY(0);transform:translateY(0)}
+			100%{-webkit-transform:translateY(-80px);transform:translateY(-80px)}
+		}
+	</style>
+</head>
+<body>
+
+<!-- header导航栏页面滚动时消失 + 导航栏响应式效果-->
+	<header id="header" class="header">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false">
+					<!-- <span class="sr-only">Toggle navigation</span> -->
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a href="" title="" target="_blank" class="navbar-brand"><b>Hang</b></a>
+			</div>
+			<nav id="bs-navbar" class="collapse navbar-collapse" aria-expanded="false" style="height: 1px;">
+				<ul class="nav navbar-nav">
+					<li><a href="#">博客</a></li>
+					<li><a href="#">文章</a></li>
+					<li><a href="#">Github</a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li><a>我还是响应式布局</a></li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+
+	<div class="main">
+		<div class="poke-ball"></div>
+	</div>
+	
+
+
+	<script src="https://cdn.bootcss.com/headroom/0.9.4/headroom.min.js"></script>
+
+	<!-- header隐藏 -->
+	<script> 
+	    var header = new Headroom(document.getElementById("header"),
+	    {
+	      tolerance: 5,
+	      offset: 0,
+	      classes: {
+	        initial: "animated",
+	        pinned: "slideDown",
+	        unpinned: "slideUp"
+	      }
+	    });
+	    header.init();
+	</script>
+
+	<!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+	<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+	<!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+	<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+</html>
