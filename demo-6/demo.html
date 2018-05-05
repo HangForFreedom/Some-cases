@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			background-color: #fff;
+		}
+		#canvas{
+			display: block;
+			margin: 100px auto 0;
+		}
+	</style>
+</head>
+<body>
+	<canvas id="canvas">当前浏览器不支持canvas，请更换浏览器后再试</canvas>
+	<script>
+		//面向对象编程  基于一类的开发
+		//面向过程：重复的运动的方法
+
+		//时钟的构造函数 盛放私有属性
+		function Clock(){
+			//画笔 创造2d绘画空间
+			this.cxt = canvas.getContext('2d'); 
+			//声明canvas的宽高
+			canvas.width = 700;
+			canvas.height = 100;
+			this.H = canvas.height;
+			this.W = canvas.width;
+		}
+		//对象的原型， 盛放公共的方法
+		Clock.prototype = {
+			init: function(index,num){
+				//设置粒子的半径
+				var r = (this.H / 20) - 1;
+				var cxt = this.cxt;
+				//渲染的数字，生成点阵数字
+				for(var i=0; i<digit[num].length; i++){ 
+					for(var j=0; j<digit[num][i].length; j++){
+						if(digit[num][i][j] == 1){
+							cxt.fillStyle = '#000';
+							cxt.beginPath();
+							cxt.arc(index*14*(r+2) + j*2*(r+1)+r+1,i*2*(r+1)+r+1,r,0,Math.PI*2,false);
+							cxt.closePath();
+							cxt.fill();
+						}
+					}
+
+				}
+			},
+			getTime: function(){
+				//存储时间数据
+				var data = [];
+				var temp = /(\d)(\d):(\d)(\d):(\d)(\d)/.exec(new Date());
+				data.push(temp[1],temp[2],10,temp[3],temp[4],10,temp[5],temp[6]);
+				//重置画布高低，达到清空画布的效果
+				canvas.height = 100; 
+				//渲染时钟
+				for(var i=0; i<data.length; i++){
+					clock.init(i,data[i]);
+				}
+				
+			}
+		}
+
+		var clock = new Clock();
+		clearInterval(oTimer); //优化
+		var oTimer = setInterval(function(){
+			clock.getTime();
+		},50);
+		// for(var i=0; i<11; i++){
+		// 	clock.init(i,i);
+		// }
+		/*
+			一 怎么在canvas上面进行没有规则图形的绘制？
+				拓印的思想进行绘制
+				1.1 js怎么拓印的？
+					数组  最多  简单  快捷
+					矩阵  需要一定的数学理论基础  难
+			二 数组怎么拓印？
+				0 代表不拓印
+				1 代表拓印
+			三 怎么来建立数组（确立数组的维度）？
+				要绘制那个数字	一维
+				要绘制数字的长度	二维
+				要绘制的行数和列数	三维
+				综上，确立三维数组包含的是0~9以及'：'的二维点阵
+			四 借助canvas进行绘制
+				4.1 确立画圆的方法
+					cxt.arc(x,y,r,0,2*PI,false);
+				4.2 设置圆的属性
+					先求r，再求坐标
+
+					x,y: 圆的坐标 变量
+					r:   半径 定值
+					怎么求r？
+						设圆的半径为： r
+						则一个圆的宽高为：2r （使用矩形框柱圆形，才会有间距）
+						一个矩形的宽高为：2（r + 1）
+						在三维数组里面代表数字是 10 * 7 的二维的点阵
+						整个数字的宽度为： 14（r + 1） 高度为： 20（r + 1）
+						设数字的高度为100，则r： 100 = 20（r + 1） 为4
+
+					怎么求x，y？
+						（把数组中的1转换成相对应的位置）
+						确立圆形的x坐标： 和j相关
+							第一个圆：r + 1
+							第二个圆：2（r + 1） + r + 1
+							第三个圆：4（r + 1） + r + 1
+							第四个圆：6（r + 1） + r + 1、
+							...
+							综上，得到 j*2（r + 1） + r + 1
+
+						确立圆形的y坐标： 和i相关
+							第一个圆：r + 1
+							第二个圆：2（r + 1） + r + 1
+							第三个圆：4（r + 1） + r + 1
+							第四个圆：6（r + 1） + r + 1、
+							...
+							综上，得到 i*2（r + 1） + r + 1
+			五 关联时间的实现
+				5.1 获取到系统时间 new Date
+				5.2 得到22：00：:1这种格式 正则 
+					/ /.exec 
+
+			前端：
+				前期
+					简单的数据逻辑 注重实现业务
+				后期
+					提供解决方案 性能优化	产品优化
+		*/
+	</script>
+	<script src="js/data.js"></script>
+</body>
+</html>
