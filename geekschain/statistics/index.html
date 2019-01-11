@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+	<title>Statistic</title>
+	<link rel="stylesheet" href="css/iconfont.css">
+	<!-- <link rel="stylesheet" type="text/css" href="http:////at.alicdn.com/t/font_1008612_c8fx2yhoqzr.css"> -->
+	<style type="text/css" media="screen">
+		body{
+			margin: 0;
+			padding: 0;
+		}
+		/***************** 总容器 ****************/
+		.dashboard{
+			position: relative;
+			margin: 30px auto;
+			/*height: 1000px;*/
+			width: 100%;
+			max-width: 1200px;
+			background-color: #f0f2f5;
+		}
+		.dashboard *{
+			box-sizing: border-box;
+		}
+
+		/**************row 栅格系统***************/
+		.panel-row:before,
+		.panel-row:after{
+			content: "";
+			display: table;
+			clear: both;
+		}
+		[class *= 'col-']{
+			float: left;
+			min-height: 1px;
+			padding: 12px;
+		}
+		@media all and (min-width: 1000px){
+			.col-1{ width: 16.66%; }
+			.col-2{ width: 25%; }
+			.col-3{ width: 50%; }
+			.col-4{ width: 66.664%; }
+			.col-5{ width: 83.33%; }
+			.col-6{ width: 100%; }
+		}
+		@media all and (max-width: 1000px){
+			.col-md-1{ width: 16.66%; }
+			.col-md-2{ width: 33.33%; }
+			.col-md-3{ width: 50%; }
+			.col-md-4{ width: 66.664%; }
+			.col-md-5{ width: 83.33%; }
+			.col-md-6{ width: 100%; }
+		}
+		@media all and (max-width: 608px){
+			.col-sm-1{ width: 16.66%; }
+			.col-sm-2{ width: 33.33%; }
+			.col-sm-3{ width: 50%; }
+			.col-sm-4{ width: 66.664%; }
+			.col-sm-5{ width: 83.33%; }
+			.col-sm-6{ width: 100%; }
+		}
+		/*row 栅格系统*/
+
+		/************ 数量统计面板组 *************/
+		.panel{
+			/*height: 300px;
+			margin: 0 auto;
+			padding: 10px;*/
+			padding: 20px 15px 0 15px;
+			background-color: #f0f2f5;			
+		}
+		.panel-card{
+			height: 108px;
+			background-color: #fff;
+			box-sizing: border-box;
+			-webkit-box-shadow: 4px 4px 40px rgba(0,0,0,.05);
+			box-shadow: 4px 4px 40px rgba(0,0,0,.05);
+		}
+		.panel-card-icon{
+			float: left;
+			margin: 29px 0 0 20px;
+			border-radius: 10px;
+		}
+		.panel-card-description{
+			float: right;
+			margin: 18px 10px 0 0;
+		}
+		.panel-card-description .card-text{
+			margin-bottom: 20px;
+			color: rgba(0,0,0,.45);
+			font-size: 16px;
+			font-weight: 600;
+		}
+		.panel-card-description span{
+			float: right;
+			color: #666;
+			font-size: 20px;
+			font-weight: 700;
+		}
+
+		/******************** Notice ***************/
+		.notice{
+			position: absolute;
+			left: 28px;
+		}
+		.notice i, span{
+			font-size: 14px;
+		}
+		.notice span{
+			color: rgba(0,0,0,.5);
+			font-weight: 600;
+		}
+
+		/*************** 图表面板显示 ***************/
+		.chart-num{
+			height: 600px;
+			background-color: #fff;
+		}
+		.chart-trend{
+			height: 600px;
+			background-color: #fff;
+		}
+	</style>
+</head>
+<body>
+	<div class="dashboard">
+		<!---------- 数量统计面板组 ------->
+		<div class="panel-row">
+			<div class="panel-group panel">
+				<div class="row-card col-2 col-md-3 col-sm-6">
+					<div class="panel-card">
+					<div class="panel-card-icon">
+						<i class="iconfont icon-qiye"></i>
+					</div>
+					<div class="panel-card-description">
+						<div class="card-text">企业数量</div>
+						<span class="card-num">123</span>
+					</div>
+					</div>
+				</div>
+				<div class="row-card col-2 col-md-3 col-sm-6">
+					<div class="panel-card">
+					<div class="panel-card-icon">
+						<i class="iconfont icon-fafang"></i>
+					</div>
+					<div class="panel-card-description">
+						<div class="card-text">二维码发放数量</div>
+						<span class="card-num">456</span>
+					</div>
+					</div>
+				</div>
+				<div class="row-card col-2 col-md-3 col-sm-6">
+					<div class="panel-card">
+					<div class="panel-card-icon">
+						<i class="iconfont icon-saoma"></i>
+					</div>
+					<div class="panel-card-description">
+						<div class="card-text">扫码数量</div>
+						<span class="card-num">4566</span>
+					</div>
+					</div>
+				</div>
+				<div class="row-card col-2 col-md-3 col-sm-6">
+					<div class="panel-card">
+					<div class="panel-card-icon">
+						<i class="iconfont icon-yichang"></i>
+					</div>
+					<div class="panel-card-description">
+						<div class="card-text">异常扫码数量</div>
+						<span class="card-num">7878</span>
+					</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="notice">
+			<i class="iconfont icon-yichang"></i>
+			<span>图表出现错乱，请刷新页面</span>
+		</div>
+
+		<!--------- 图表面板显示 --------->
+		<div class="panel-row">
+			<div class="panel-chart panel">
+				<div class="row-chart col-3 col-md-6 col-sm-6">
+					<div class="chart-num">
+						<div id="chartNum" style="height: 100%"></div>
+					</div>
+				</div>
+				<div class="row-chart  col-3 col-md-6 col-sm-6">
+					<div class="chart-trend">
+						<div id="chartTrend" style="height: 100%"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	 <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts.min.js"></script>
+	<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-gl/echarts-gl.min.js"></script>
+	<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-stat/ecStat.min.js"></script>
+	<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/dataTool.min.js"></script>
+	<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/china.js"></script>
+	<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/world.js"></script>
+	<script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=ZUONbpqGBsYGXNIYHicvbAbM"></script>
+	<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/bmap.min.js"></script>
+	<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/simplex.js"></script>
+	<script type="text/javascript">
+
+		//           中国地图扫码数量                 //
+		var num = document.getElementById("chartNum");
+		var chartNum = echarts.init(num);
+		var app = {};
+		option = null;
+		function randomData() {
+		    return Math.round(Math.random()*1000);
+		}
+
+		option = {
+		    title: {
+		        text: '扫码数量',
+		        subtext: '',
+		        left: 'center'
+		    },
+		    tooltip: {
+		        trigger: 'item'
+		    },
+		    legend: {
+		        orient: 'vertical',
+		        left: 'left',
+		        // data:['iphone3','iphone4','iphone5']
+		    },
+		    visualMap: {
+		        min: 0,
+		        max: 2500,
+		        left: 'left',
+		        top: 'bottom',
+		        text: ['高','低'],           // 文本，默认为数值文本
+		        calculable: true
+		    },
+		    toolbox: {
+		        show: true,
+		        orient: 'vertical',
+		        left: 'right',
+		        top: 'center',
+		        feature: {
+		            dataView: {readOnly: false},
+		            restore: {},
+		            saveAsImage: {}
+		        }
+		    },
+		    series: [
+		        {
+		            name: '',
+		            type: 'map',
+		            mapType: 'china',
+		            roam: false,
+		            label: {
+		                normal: {
+		                    show: true
+		                },
+		                emphasis: {
+		                    show: true
+		                }
+		            },
+		            data:[
+		                {name: '北京',value: randomData() },
+		                {name: '天津',value: randomData() },
+		                {name: '上海',value: randomData() },
+		                {name: '重庆',value: randomData() },
+		                {name: '河北',value: randomData() },
+		                {name: '河南',value: randomData() },
+		                {name: '云南',value: randomData() },
+		                {name: '辽宁',value: randomData() },
+		                {name: '黑龙江',value: randomData() },
+		                {name: '湖南',value: randomData() },
+		                {name: '安徽',value: randomData() },
+		                {name: '山东',value: randomData() },
+		                {name: '新疆',value: randomData() },
+		                {name: '江苏',value: randomData() },
+		                {name: '浙江',value: randomData() },
+		                {name: '江西',value: randomData() },
+		                {name: '湖北',value: randomData() },
+		                {name: '广西',value: randomData() },
+		                {name: '甘肃',value: randomData() },
+		                {name: '山西',value: randomData() },
+		                {name: '内蒙古',value: randomData() },
+		                {name: '陕西',value: randomData() },
+		                {name: '吉林',value: randomData() },
+		                {name: '福建',value: randomData() },
+		                {name: '贵州',value: randomData() },
+		                {name: '广东',value: randomData() },
+		                {name: '青海',value: randomData() },
+		                {name: '西藏',value: randomData() },
+		                {name: '四川',value: randomData() },
+		                {name: '宁夏',value: randomData() },
+		                {name: '海南',value: randomData() },
+		                {name: '台湾',value: randomData() },
+		                {name: '香港',value: randomData() },
+		                {name: '澳门',value: randomData() }
+		            ]
+		        },
+		        {
+		            name: '',
+		            type: 'map',
+		            mapType: 'china',
+		            label: {
+		                normal: {
+		                    show: true
+		                },
+		                emphasis: {
+		                    show: true
+		                }
+		            },
+		            data:[
+		                {name: '北京',value: randomData() },
+		                {name: '天津',value: randomData() },
+		                {name: '上海',value: randomData() },
+		                {name: '重庆',value: randomData() },
+		                {name: '河北',value: randomData() },
+		                {name: '安徽',value: randomData() },
+		                {name: '新疆',value: randomData() },
+		                {name: '浙江',value: randomData() },
+		                {name: '江西',value: randomData() },
+		                {name: '山西',value: randomData() },
+		                {name: '内蒙古',value: randomData() },
+		                {name: '吉林',value: randomData() },
+		                {name: '福建',value: randomData() },
+		                {name: '广东',value: randomData() },
+		                {name: '西藏',value: randomData() },
+		                {name: '四川',value: randomData() },
+		                {name: '宁夏',value: randomData() },
+		                {name: '香港',value: randomData() },
+		                {name: '澳门',value: randomData() }
+		            ]
+		        },
+		        {
+		            name: '',
+		            type: 'map',
+		            mapType: 'china',
+		            label: {
+		                normal: {
+		                    show: true
+		                },
+		                emphasis: {
+		                    show: true
+		                }
+		            },
+		            data:[
+		                {name: '北京',value: randomData() },
+		                {name: '天津',value: randomData() },
+		                {name: '上海',value: randomData() },
+		                {name: '广东',value: randomData() },
+		                {name: '台湾',value: randomData() },
+		                {name: '香港',value: randomData() },
+		                {name: '澳门',value: randomData() }
+		            ]
+		        }
+		    ]
+		};;
+		if (option && typeof option === "object") {
+		    chartNum.setOption(option, true);
+		}
+		// window.onresize = chartNum.resize;
+
+		//            扫码趋势             //
+		var dom = document.getElementById("chartTrend");
+		var chartTrend = echarts.init(dom);
+		var app = {};
+		option = null;
+		option = {
+		    title: {
+		        text: '扫码趋势'
+		    },
+		    tooltip: {
+		        trigger: 'axis'
+		    },
+		    legend: {
+		        data:['','','','','']
+		    },
+		    grid: {
+		        left: '3%',
+		        right: '4%',
+		        bottom: '3%',
+		        containLabel: true
+		    },
+		    toolbox: {
+		        feature: {
+		            saveAsImage: {}
+		        }
+		    },
+		    xAxis: {
+		        type: 'category',
+		        boundaryGap: false,
+		        data: ['周一','周二','周三','周四','周五','周六','周日']
+		    },
+		    yAxis: {
+		        type: 'value'
+		    },
+		    series: [
+		        {
+		            name:'邮件营销',
+		            type:'line',
+		            stack: '总量',
+		            data:[120, 132, 101, 134, 90, 230, 210]
+		        },
+		        {
+		            name:'联盟广告',
+		            type:'line',
+		            stack: '总量',
+		            data:[220, 182, 191, 234, 290, 330, 310]
+		        },
+		        {
+		            name:'视频广告',
+		            type:'line',
+		            stack: '总量',
+		            data:[150, 232, 201, 154, 190, 330, 410]
+		        },
+		        {
+		            name:'直接访问',
+		            type:'line',
+		            stack: '总量',
+		            data:[320, 332, 301, 334, 390, 330, 320]
+		        },
+		        {
+		            name:'搜索引擎',
+		            type:'line',
+		            stack: '总量',
+		            data:[820, 932, 901, 934, 1290, 1330, 1320]
+		        }
+		    ]
+		};
+		;
+		if (option && typeof option === "object") {
+		    chartTrend.setOption(option, true);
+		}
+		window.onresize = chartTrend.resize;
+	</script>
+</body>
+</html>
