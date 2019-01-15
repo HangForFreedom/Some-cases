@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<style type="text/css" media="screen">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		/*********** 了解max-width和min-width *************/
+		.width{
+			width: 80%;
+			height: 500px;
+			background-color: #ccc;
+			margin: 25px auto;
+		}
+		.box1, .box2, .box3, .box4{
+			width: 100px;
+			height: 100px;
+			background-color: lightblue;
+			color: #000;
+			font-size: 13px;
+			font-weight: 600;
+			text-align: center;
+			line-height: 20px;
+			margin: 15px auto;
+		}
+		.box1{
+			max-width: 200px;
+		}
+		.box2{
+			max-width: 50px;
+		}
+		.box3{
+			min-width: 200px;
+		}
+		.box4{
+			min-width: 50px;
+		}
+
+		/******************** 栅格系统 *********************/
+		.grid{
+			width: 80%;
+			margin: 0 auto;
+		}
+		.grid *{
+			box-sizing: border-box;
+		}
+		.grid-info{
+			background-color: #ccc;
+		}
+		.grid-info ul{
+			margin-top: 15px;
+			margin-left: 20px;
+		}
+		.row{
+			margin: 20px auto;
+			border: 2px dotted lightblue;
+		}
+		.row:before,
+		.row:after{
+			content: "";
+			display: table;
+			clear: both;
+		}
+		[class *= 'col-']{
+			float: left;
+			min-height: 1px;
+			padding: 15px;
+		}
+		.col-1{ width: 16.66%; }
+		.col-1-4{ width: 25%; }
+		.col-2{ width: 33.33%; }
+		.col-3{ width: 50%; }
+		.col-4{ width: 66.66%; }
+		.col-5{ width: 83.33.%; }
+		.col-6{ width: 100%; }
+		[class *= 'box-']{
+			height: 100px;
+		}
+		.box-4{
+			background-color: #82A6F5;
+		}
+		.box-6{
+			background-color: #EAF048;
+		}
+		.box-8{
+			background-color: #9FF048;
+		}
+
+		[class *= 'col-']{}/** 移动端优先 **/
+		@media only screen and ( min-width: 600px ){}
+		@media only screen and ( min-width: 980px ){}
+
+		@media only screen and ( max-width: 900px ){
+			.col-md-1{ width: 16.66%; }
+			.col-md-2{ width: 33.33%; }
+			.col-md-3{ width: 50%; }
+			.col-md-4{ width: 66.66%; }
+			.col-md-5{ width: 83.33.%; }
+			.col-md-6{ width: 100%; }
+		}
+
+/*		@media only screen and ( max-width: 768px ){
+			.col-xm-1{ width: 16.66%; }
+			.col-xm-2{ width: 33.66%; }
+			.col-xm-3{ width: 50%; }
+			.col-xm-4{ width: 66.66%; }
+			.col-xm-5{ width: 83.33.%; }
+			.col-xm-6{ width: 100%; }
+		}*/
+
+		@media only screen and ( max-width: 600px ){
+			.col-sm-1{ width: 16.66%; }
+			.col-sm-2{ width: 33.33%; }
+			.col-sm-3{ width: 50%; }
+			.col-sm-4{ width: 66.66%; }
+			.col-sm-5{ width: 83.33.%; }
+			.col-sm-6{ width: 100%; }
+		}
+		.row-box{
+			height: 130px;
+		}
+	</style>
+</head>
+<body>
+	<!-------------- bootstrap响应式header ---------------->
+	<style type="text/css">
+		.container a{
+			color: #fff;
+		}
+		.container a:hover{
+			background-color: #fff;
+			color: #337ab7;
+		}
+	</style>
+	<header id="header" class="header" style="background-color: #337ab7;">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false">
+					<!-- <span class="sr-only">Toggle navigation</span> -->
+					<span class="icon-bar" style="background-color:#fff;"></span>
+					<span class="icon-bar" style="background-color:#fff;"></span>
+					<span class="icon-bar" style="background-color:#fff;"></span>
+				</button>
+				<a href="https://hangforfreedom.github.io/" title="" class="navbar-brand" ><b>Hang</b></a>
+			</div>
+			<nav id="bs-navbar" class="collapse navbar-collapse" aria-expanded="false" style="height: 1px;">
+				<ul class="nav navbar-nav">
+					<li><a href="https://hangforfreedom.github.io/" >博客</a></li>
+					<li><a href="https://hangforfreedom.github.io/2019/01/15/geekchain-statistics.html" >文章</a></li>
+					<li><a href="https://github.com/HangForFreedom/some-cases/tree/master/栅格系统实现" >Github</a></li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+
+	<!-------------- 了解max-width和min-width ---------------->
+	<div class="width">
+		<span style="font-size: 14px; font-weight: 600; text-indent: 2px;">首先了解max-width和min-width的原理</span>
+		<div class="box1">
+			<div class="font">
+				box1<br>
+				box1宽度小于max-width
+			</div>
+		</div>
+		<div class="box2">
+			<div class="font">
+				box2<br>
+				box2宽度大于max-width
+			</div>
+		</div>
+		<div class="box3">
+			<div class="font">
+				box3<br>
+				box3宽度小于min-width
+			</div>
+		</div>
+		<div class="box4">
+			<div class="font">
+				box4<br>
+				box4宽度大于min-width
+			</div>
+		</div>
+	</div>
+
+	<!------------------------ 栅格系统 ------------------------>
+	<div class="grid">
+		<div class="grid-info row">
+			<span style="font-size: 14px; font-weight: 600; text-indent: 2px;">其次了解 @media only screen and ( min-width: 980px ) 和 @media only screen and ( max-width: 980px ) 的原理</span>
+			<ul>
+				<li><b>@media only screen and ( max-width: 980px ){}</b><br>
+				当页面小于960px时候执行其中的语句</li><br>
+				<li><b>@media only screen and ( min-width: 980px ){}</b><br>
+				当页面大于980px时候执行其中的语句</li><br>
+				<li><b>@media screen and (min-width:960px) and (max-width:1200px){}</b><br>
+				当页面宽度大于960px小于1200px时候执行其中的语句</li>
+			</ul>
+		</div>
+		<div class="row">
+			<div class="row-box col-1-4 col-md-3 col-sm-6"><div class="box-4"></div></div>
+			<div class="row-box col-1-4 col-md-3 col-sm-6"><div class="box-4"></div></div>
+			<div class="row-box col-1-4 col-md-3 col-sm-6"><div class="box-4"></div></div>
+			<div class="row-box col-1-4 col-md-3 col-sm-6"><div class="box-4"></div></div>
+		</div>
+		<div class="row">
+			<div class="row-box col-2 col-md-3 col-sm-6"><div class="box-6"></div></div>
+			<div class="row-box col-2 col-md-3 col-sm-6"><div class="box-6"></div></div>
+			<div class="row-box col-2 col-md-3 col-sm-6"><div class="box-6"></div></div>
+			<div class="row-box col-2 col-md-3 col-sm-6"><div class="box-6"></div></div>
+			<div class="row-box col-2 col-md-3 col-sm-6"><div class="box-6"></div></div>
+			<div class="row-box col-2 col-md-3 col-sm-6"><div class="box-6"></div></div>-
+		</div>
+		<div class="row">
+			<div class="row-box col-1-4 col-md-3 col-sm-6"><div class="box-8"></div></div>
+			<div class="row-box col-1-4 col-md-3 col-sm-6"><div class="box-8"></div></div>
+			<div class="row-box col-1-4 col-md-3 col-sm-6"><div class="box-8"></div></div>
+			<div class="row-box col-1-4 col-md-3 col-sm-6"><div class="box-8"></div></div>
+			<div class="row-box col-1-4 col-md-3 col-sm-6"><div class="box-8"></div></div>
+			<div class="row-box col-1-4 col-md-3 col-sm-6"><div class="box-8"></div></div>
+			<div class="row-box col-1-4 col-md-3 col-sm-6"><div class="box-8"></div></div>
+			<div class="row-box col-1-4 col-md-3 col-sm-6"><div class="box-8"></div></div>
+		</div>
+	</div>
+
+	<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+	<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" type="text/javascript"></script>
+</body>
+</html>
