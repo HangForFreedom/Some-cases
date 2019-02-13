@@ -1,0 +1,514 @@
+body,
+html {
+    background: #f5f5f5;
+}
+
+.template-header{
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(39,54,78,0.1);
+    z-index: 1000;
+}
+.template-title{
+    width: 80%;
+    height: 70px;
+    margin: 0 auto;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 70px;
+    color: #354052;
+    text-align: center;
+}
+        
+::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+}
+
+.gslide-description {
+    width: 100%;
+    bottom: 0px;
+}
+
+.page {
+    width: 100%;
+}
+
+.aetos-hd {
+    position: relative;
+    width: 100%;
+    padding-top: 5%;
+    background: url(../images/banner.png) no-repeat top;
+    background-size: contain;
+    background-color: #f5f5f5;
+    position: relative;
+}
+
+.aetos-logo{
+    width: 100px;
+    height: 100px;
+    margin: auto;
+    background-color: #000;
+    color: #fff;
+    line-height: 100px;
+    text-align: center;
+    border-radius: 50%;
+}
+
+.aetos-hd .weui-flex {
+    width: 100%;
+}
+
+.aetos-hd .weui-flex__item {
+    position: absolute;
+    bottom: 0;
+    right: 1.5%;
+    color: #fff;
+    font-weight: 300;
+}
+
+.aetos-hd__logo {
+    width: 40%;
+    height: auto;
+    margin-top: 10px;
+}
+
+.placeholder-img {
+    width: 90%;
+    height: 70%;
+    background: #f5f5f5;
+}
+
+.placeholder-img img {
+    width: 100%;
+    max-height: 100%;
+    overflow: hidden;
+}
+
+.aetos-info {
+    padding: 8px 20px;
+    background: #fff;
+    text-align: right;
+}
+
+.aetos-info .weui-flex__item {
+    width: 60%;
+}
+
+.aetos-info__title {
+    color: #000;
+    padding: 2px 5px;
+    font-size: 14px;
+}
+
+.aetos-info__flex {
+}
+
+.aetos-info__desc {
+    display: block;
+    font-size: 14px;
+    padding-top: 2px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.aetos-info__img img {
+    width: 40px;
+    height: 40px;
+    padding-top: 18px;
+}
+
+/*.aetos-info p {
+    padding: 10px 0;
+    font-size: 13px;
+}*/
+
+.time-point{
+    position: absolute;
+    top: -5px;
+    left: -15px;
+    background: url(../images/time-point.png) no-repeat top;
+    background-size: contain;
+    width: 30px;
+    height: 30px;
+}
+
+.aetos-timeline {
+    background: #FFFFFF;
+    padding-left: 140px;
+    padding-bottom: 40px;
+}
+
+.aetos-timeline__tools {
+    width: 80%;
+    color: #3a3a3a;
+    font-size: 14px;
+}
+
+.file-hash{
+    display: block;
+    width: 55%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.aetos-timeline__tag {
+    width: 13px;
+    height: 13px;
+    display: inline-block;
+    box-sizing: border-box;
+}
+
+.aetos-timeline__gps {
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+    box-sizing: border-box;
+}
+
+.aetos-timeline__source {
+    position: relative;
+    width: 80%;
+}
+
+.aetos-timeline__source img {
+    padding-top: 10px;
+    width: 100%;
+    height: auto;
+}
+
+.aetos-timeline__location {
+    position: absolute;
+    bottom: 6px;
+    width: 100%;
+    height: auto;
+    background: url(../images/location-bg.png) no-repeat center;
+    background-size: cover;
+    font-size: 14px;
+    text-align: center;
+}
+
+.aetos-timeline__location img{
+    width: 10px;
+    height: auto;
+}
+
+#batch-num {
+    margin-left: -4%;
+    font-size: 24px;
+}
+
+#product-title {
+    bottom: 0;
+}
+
+.aetos-ft {
+    height: 200px;
+}
+
+.backgd{
+    position: fixed;
+    bottom: 0;
+    /*background: url(../images/bottom.jpg) no-repeat;*/
+    background-size: cover;
+    width: 100%;
+   height: 200px; 
+   z-index: 99999;
+}
+
+.aetos-ft p {
+    font-size: 0.8rem;
+}
+
+.aetos-ft img {
+    width: 50px;
+    height: 50px;
+}
+
+/**timeline**/
+
+.time-vertical {
+    list-style-type: none;
+    border-left: 1px solid #000;
+    padding: 0;
+}
+
+.time-vertical li {
+    position: relative;
+}
+
+.time-vertical li .aetos-timeline__content {
+    margin-left: 30px;
+    text-decoration: none;
+    color: #000;
+}
+
+.video-play {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    background: url(../images/play.png) no-repeat;
+    z-index: 0;
+    background-size: cover;
+    background-position:center;
+}
+
+/**rewrite**/
+
+/*.text-center {
+    margin-top: -10px;
+    text-align: center;
+}
+
+.text-center span{
+    font-size: 24px;
+    font-weight: 700;
+}*/
+
+h3 {
+    font-size: 0.9rem;
+    font-weight: 400;
+}
+
+p {
+    font-size: 14px;
+}
+
+/** map **/
+.weui-navbar__item.weui-bar__item_on {
+    background-color: #fff;
+    border-bottom: 3px solid #000;
+}
+
+.weui-navbar__item:after {
+    border-right: 0px solid #CCCCCC;
+}
+
+.weui-navbar {
+    background-color: #fff;
+}
+
+.weui-navbar__item {
+    padding: 7px 0;
+}
+
+.weui-navbar+.weui-tab__panel {
+    padding-top: 40px;
+    padding-bottom: 0;
+}
+
+.weui-cells {
+    margin-top: 0;
+}
+
+
+/**media**/
+@media (max-width: 374px) {
+    .aetos-hd {
+        height: 150px;
+    }
+    .aetos-logo{
+        width: 80px;
+        height: 80px;
+        font-size: 15px;
+        line-height: 80px;
+    }
+    #batch-num {
+        font-size: 10px;
+    }
+    .time-point{
+        top: 0px;
+        left: -10px;
+        width: 20px;
+        height: 20px;
+    }
+    .aetos-timeline{
+        padding-left: 45px;
+    }
+    .aetos-ft{
+        height: 65px;
+    }
+    .aetos-ft .backgd{
+        height: 65px;
+    }
+}
+
+@media (min-width: 374px) {
+    .aetos-hd {
+        height: 150px;
+    }
+    .aetos-logo{
+        width: 80px;
+        height: 80px;
+        font-size: 15px;
+        line-height: 80px;
+    }
+    #batch-num {
+        margin-left: -6%;
+        font-size: 10px;
+    }
+    .time-point{
+        top: 0px;
+        left: -10px;
+        width: 20px;
+        height: 20px;
+    }
+    .aetos-timeline{
+        padding-left: 70px;
+    }
+    .aetos-ft{
+        height: 75px;
+    }
+    .aetos-ft .backgd{
+        height: 75px;
+    }
+}
+
+@media (min-width: 547px) {
+    .aetos-hd {
+        height: 150px;
+    }
+    .aetos-logo{
+        width: 100px;
+        height: 100px;
+        font-size: 20px;
+        line-height: 100px;
+    } 
+    .device{
+        position: relative;
+        width: 402px;
+        height: 798px;
+        margin: 40px auto;
+        background-image: url(../images/phone.png);
+        background-size: cover;
+    }
+
+    .device-screen{
+        position: absolute;
+        top: 70px;
+        right: 21px;
+        width: 360px;
+        height: 640px;
+        overflow: auto;
+        white-space: nowrap
+    }
+    .time-point{
+        top: 0px;
+        left: -10px;
+        width: 20px;
+        height: 20px;
+    }
+    .aetos-timeline{
+        padding-left: 70px;
+    }
+    .aetos-ft{
+        height: 100px;
+    }
+    .aetos-ft .backgd{
+        height: 100px;
+    }
+}
+
+/*@media (min-width: 689px) {
+    .aetos-hd {
+        height: 230px;
+    }
+    .aetos-logo{
+        width: 150px;
+        height: 150px;
+        font-size: 20px;
+        line-height: 150px;
+    }
+    .time-point{
+        top: 0px;
+        left: -10px;
+        width: 20px;
+        height: 20px;
+    }
+    .aetos-timeline{
+        padding-left: 120px;
+    }
+    .aetos-ft{
+        height: 120px;
+    }
+    .aetos-ft .backgd{
+        height: 120px;
+    }
+}
+
+@media (min-width: 768px) {
+    .aetos-hd {
+        height: 260px;
+    }
+    .aetos-logo{
+        width: 150px;
+        height: 150px;
+        font-size: 30px;
+        line-height: 150px;
+    }
+    .time-point{
+        top: 0px;
+        left: -10px;
+        width: 20px;
+        height: 20px;
+    }
+    .aetos-timeline{
+        padding-left: 140px;
+    }
+    .aetos-ft{
+        height: 140px;
+    }
+    .aetos-ft .backgd{
+        height: 140px;
+    }
+}
+
+@media (min-width: 802px) {
+    .aetos-hd {
+        height: 350px;
+    }
+    .aetos-logo{
+        width: 200px;
+        height: 200px;
+        font-size: 30px;
+        line-height: 200px;
+    }
+    .time-point{
+        top: 0px;
+        left: -10px;
+        width: 20px;
+        height: 20px;
+    }
+    .aetos-ft{
+        height: 210px;
+    }
+    .aetos-ft .backgd{
+        height: 210px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .aetos-hd {
+        height: 420px;
+    }
+    .aetos-logo{
+        width: 250px;
+        height: 250px;
+        font-size: 35px;
+        line-height: 250px;
+    }
+    .time-point{
+        top: -5px;
+        left: -15px;
+        width: 30px;
+        height: 30px;
+    }
+    .aetos-ft{
+        height: 220px;
+    }
+    .aetos-ft .backgd{
+        height: 220px;
+    }
+}*/

@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="maximum-scale=1,minimum-scale=1,user-scalable=no, width=device-width, initial-scale=1.0">
+	<title>admin显示产品</title>
+	<link rel="stylesheet" href="">
+	<style type="text/css" media="screen">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		a{
+			text-decoration: none;
+		}
+		ul,li{
+			list-style: none;
+		}
+		.show-container{
+			padding: 10px;
+			background-color: #ecf2f6;
+		}
+		.show-header{
+			position: relative;
+			width: 90%;
+			margin: 0 auto;
+			padding: 10px 0;
+			background-color: #354052;
+		}
+		.return{
+			position: absolute;
+			padding: 6px 12px;
+			font-size: 14px;
+			text-align: center;
+			vertical-align: middle;
+			border: 1px solid transparent;
+			border-radius: 5px;
+			cursor: pointer;
+			color: #c0d4e8;
+			background-color: #fff;
+			border-color: #000;
+		}
+		.return:hover{
+			color: #333;
+			background-color: #e6e6e6;
+			border-color: #adadad;
+		}
+		.show-title{
+			text-align: center;
+			font-size: 30px;
+			font-weight: 600;
+			color: #fff;
+		}
+
+		.show-main{
+			width: 90%;
+			margin: 10px auto;
+		}
+		.show-step{
+			padding-top: 12px;
+			margin: 10px 0;
+			background-color: #fff;
+		}
+		.show-step .step-name{
+			font-size: 19px;
+			font-weight: 600;
+			color: #59677e;
+			margin-left: 12px;
+		}
+
+		/******row 栅格系统******/
+		.row *{
+			box-sizing: border-box;
+		}
+		.row:before,
+		.row:after{
+		    content: "";
+		    display: table;
+		    clear: both;
+		}
+		[class *= 'col-']{
+		    float: left;
+		    min-height: 1px;
+		    padding: 12px;
+		}
+		.col-1{ width: 16.66%; }
+		.col-2{ width: 33.33%; }
+		.col-3{ width: 50%; }
+		.col-4{ width: 66.664%; }
+		.col-5{ width: 83.33%; }
+		.col-6{ width: 100%; }
+
+		@media all and (max-width: 1000px){
+		    .col-md-1{ width: 16.66%; }
+		    .col-md-2{ width: 33.33%; }
+		    .col-md-3{ width: 50%; }
+		    .col-md-4{ width: 66.664%; }
+		    .col-md-5{ width: 83.33%; }
+		    .col-md-6{ width: 100%; }
+		}
+		@media all and (max-width: 608px){
+		    .col-sm-1{ width: 16.66%; }
+		    .col-sm-2{ width: 33.33%; }
+		    .col-sm-3{ width: 50%; }
+		    .col-sm-4{ width: 66.664%; }
+		    .col-sm-5{ width: 83.33%; }
+		    .col-sm-6{ width: 100%; }
+		}
+		/*.step-img{
+			height: 150px;
+			border: 0.1px solid #000;
+		}*/
+		.show-step .step-img img{
+			width: 100%;
+			height: 100%;
+		}
+		.btn{
+			float: left;
+			width: 50%;
+			padding: 3px 0;
+			font-size: 16px;
+			text-align: center;
+			vertical-align: middle;
+			border: 1px solid transparent;
+			border-radius: 5px;
+			cursor: pointer;
+			background-color: #fff;
+			color: #354052;
+		}
+		.btn:hover{
+			color: #fff;
+			background-color: #354052;
+		}
+		.btn:visited{
+			border-color: none;
+		}
+		.upload-btn{
+			position: relative;
+		}
+		.upload-btn .image-input{
+			position: absolute;
+		}
+		.upload-btn .image-input,.upload-btn .image-input input{
+			width: 100%;
+			cursor: pointer;
+		}
+		.upload-btn .image-input,.upload-btn .image-input input,.upload-btn .upload-btn-item{
+			height: 80px;
+		}
+		.upload-btn .upload-btn-item{
+			font-size: 16px;
+			font-weight: 600;
+			line-height: 80px;
+			text-align: center;
+			color: #354052;
+			background-color: rgb(246,246,246);
+		}
+		.item-bg{
+			float: left;
+			width: 35px;
+			height: 35px;
+			margin: 22.5px 40px;
+			background-image: url(images/add.jpg);
+			background-size: cover;
+		}
+		.step-upload{
+			float: none;
+			padding-left: 0;
+		}
+	</style>
+</head>
+<body>
+	<div class="show-container">
+		<div class="show-header">
+			<a class="return" href="#">返回上一页</a>
+			<div class="show-title">溯源产品标题</div>
+		</div>
+		<div class="show-main">
+			<ul id="uploadstepUL">
+
+
+				<li class="uploadstep-li">	
+					<div class="show-step">
+						<div class="step-name">步骤1：步骤名称</div>
+						<div class="row">
+							<ul class="upload-ul" id="uploadUL">
+								<li class="upload-li">
+									<div class="row-box col-2 col-md-3 col-sm-6">
+										<div class="step-img">
+											<img src="images/1.jpg" alt="">
+										</div>
+										<div class="step-btn">
+											<button class="btn" type="">编辑</button>
+											<button class="btn" type="">删除</button>
+										</div>
+									</div>
+								</li>
+								<li class="upload-li">
+									<div class="row-box col-2 col-md-3 col-sm-6">
+										<div class="step-img">
+											<img src="images/2.jpg" alt="">
+										</div>
+										<div claliss="step-btn">
+											<button class="btn" type="">编辑</button>
+											<button class="btn" type="">删除</button>
+										</div>
+									</div>
+								</li>
+								<li class="upload-li">
+									<div class="row-box col-2 col-md-3 col-sm-6">
+										<div class="step-img">
+											<img src="images/3.jpg" alt="">
+										</div>
+										<div class="step-btn">
+											<button class="btn" type="">编辑</button>
+											<button class="btn delete-image" type="">删除</button>
+										</div>
+									</div>
+								</li>
+								<li class="upload-li" id="uploadBtn">
+									<div class="row-box col-2 col-md-3 col-sm-6">
+										<div class="upload-btn">
+											<form class="image-input" action="" method="get" enctype="multipart/form-data" style="opacity: 0;">
+												<input class="" id="upload" type="file" accept="imgae/*" capture="camera" multiple onchange="selectImage(this)">
+											</form>
+											<div class="upload-btn-item">
+												<div class="item-bg"></div>
+												<span>添加媒体文件</span>
+											</div>
+										</div>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</li>
+
+
+				<li class="uploadstep-li">
+					<div class="show-step">
+						<div class="step-name">步骤1：步骤名称</div>
+						<div class="row">
+							<ul class="upload-ul" id="uploadUL">
+								<li class="upload-li">
+									<div class="row-box col-2 col-md-3 col-sm-6">
+										<div class="step-img">
+											<img src="images/1.jpg" alt="">
+										</div>
+										<div class="step-btn">
+											<button class="btn" type="">编辑</button>
+											<button class="btn" type="">删除</button>
+										</div>
+									</div>
+								</li>
+								<li class="upload-li">
+									<div class="row-box col-2 col-md-3 col-sm-6">
+										<div class="step-img">
+											<img src="images/2.jpg" alt="">
+										</div>
+										<div claliss="step-btn">
+											<button class="btn" type="">编辑</button>
+											<button class="btn" type="">删除</button>
+										</div>
+									</div>
+								</li>
+								<li class="upload-li">
+									<div class="row-box col-2 col-md-3 col-sm-6">
+										<div class="step-img">
+											<img src="images/3.jpg" alt="">
+										</div>
+										<div class="step-btn">
+											<button class="btn" type="">编辑</button>
+											<button class="btn delete-image" type="">删除</button>
+										</div>
+									</div>
+								</li>
+								<li class="upload-li" id="uploadBtn">
+									<div class="row-box col-2 col-md-3 col-sm-6">
+										<div class="upload-btn">
+											<form class="image-input" action="" method="get" enctype="multipart/form-data" style="opacity: 0;">
+												<input class="" id="upload" type="file" accept="imgae/*" capture="camera" multiple onchange="selectImage(this)">
+											</form>
+											<div class="upload-btn-item">
+												<div class="item-bg"></div>
+												<span>添加媒体文件</span>
+											</div>
+										</div>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</li>
+
+
+				<li class="uploadstep-li">
+					<div class="show-step">
+						<div class="step-name">步骤1：步骤名称</div>
+						<div class="row">
+							<ul class="upload-ul" id="uploadUL">
+								<li class="upload-li" id="uploadBtn">
+									<div class="row-box col-2 col-md-3 col-sm-6">
+										<div class="upload-btn">
+											<form class="image-input" action="" method="get" enctype="multipart/form-data" style="opacity: 0;">
+												<input class="" id="upload" type="file" accept="imgae/*" capture="camera" multiple onchange="selectImage(this)">
+											</form>
+											<div class="upload-btn-item">
+												<div class="item-bg"></div>
+												<span>添加媒体文件</span>
+											</div>
+										</div>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</li>
+
+
+				<li class="uploadstep-li" id="uploadstepBtn">
+					<div class="upload-btn step-upload col-2 col-md-3 col-sm-6">
+						<form class="image-input" action="" method="get" style="opacity: 0;">
+							<input class="" id="upload" type="button" onclick="addStep()">
+						</form>
+						<div class="upload-btn-item">
+							<div class="item-bg"></div>
+							<span>添加步骤</span>
+						</div>
+					</div>
+				</li>
+
+
+			</ul>
+		</div>
+	</div>
+	<script src="js/jquery-2.1.1.min.js"></script>
+	<script src="js/yutil-1.0.1.js"></script>
+	<script type="text/javascript" charset="utf-8">
+
+		function addStep(){
+			alert("dasd");
+			var li = document.createElement('li');
+            li.id = "uploadstep_"+uploadImgIndex;
+            document.getElementById("uploadstepBtn").style.display = "";
+            uploadImgIndex++;
+            li.className = "uploadstep-li";
+            li.innerHTML = '<div class="show-step">'+'<div class="step-name">步骤1：步骤名称</div>'+'<div class="row">'+'<ul class="upload-ul" id="uploadUL">'+'<li class="upload-li" id="uploadBtn">'+'<div class="row-box col-2 col-md-3 col-sm-6">'+'<div class="upload-btn">'+'<form class="image-input" action="" method="get" enctype="multipart/form-data" style="opacity: 0;">'+'<input class="" id="upload" type="file" accept="imgae/*" capture="camera" multiple onchange="selectImage(this)">'+'</form>'+'<div class="upload-btn-item">'+'<div class="item-bg"></div>'+'<span>添加媒体文件</span>'+'</div>'+'</div>'+'</div>'+'</li>'+'</ul>'+'</div>'+'</div>';
+
+            document.getElementById("uploadstepUL").insertBefore(li, document.getElementById("uploadstepBtn"));
+		}
+
+	    var uploadImgIndex = 0;
+	    var imgArr = [];
+	    function init(){
+	    	var u = navigator.userAgent;
+	        var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
+	        if(isiOS){
+	            document.getElementById("upload").removeAttribute("capture","camera");
+	        }
+	    }
+	    function selectImage(imgFile){
+	        var allFile = imgFile.files;
+	        var totalLen = allFile.length;
+	        if(yValidate.checkNotEmpty(imgArr) && imgArr.length>0){
+	            totalLen = totalLen + imgArr.length;
+	        }
+	        for(var i=0;i<allFile.length;i++){
+	            var file = allFile[i];
+	            if(yValidate.checkNotEmpty(imgArr) && imgArr.length>0){
+	                if(imgArr.length <4){
+	                    imgArr.push(file);
+	                }
+	            }else{
+	                imgArr.push(file);
+	            }
+	            //添加一层过滤
+	            var rFilter = /^(image\/bmp|image\/gif|image\/jpeg|image\/png|image\/tiff)$/i;
+	            if(!rFilter.test(file.type)) {
+	                alert("文件格式必须为图片");
+	                return;
+	            }
+	            var reader = new FileReader();
+	            reader.readAsDataURL(file); //用文件加载器加载文件
+	            //文件加载完成
+	            reader.onload = function(e) {
+	                //计算最后一个窗口right边距，当时处于第4个的时候，right=0
+	                if((allFile.length + 1)%4 == 0){
+	                    document.getElementById("uploadBtn").style.marginRight = "0px";
+	                }
+	                //以下就是将所有上传的图片回显到页面上，如果需要用canvas进行剪裁再回显以下代码就放入到canvas中
+	                var li = document.createElement('li');
+	                li.id = "upload_"+uploadImgIndex;
+	                document.getElementById("uploadBtn").style.display = "";
+	                uploadImgIndex++;
+	                li.className = "upload-li";
+	                li.innerHTML = '<div class="row-box col-2 col-md-3 col-sm-6">'+'<div class="step-img">'+'<img src="'+e.target.result+'">'+'</div>'+'<div class="step-btn">'+'<button class="btn" type="">编辑</button>'+'<button class="btn delete-image">删除</button>'
+	                    '</div>'+'</div>';
+	                document.getElementById("uploadUL").insertBefore(li, document.getElementById("uploadBtn"));
+	                var uploadArr = document.getElementById("uploadUL").querySelectorAll("li");
+	                var len = uploadArr.length ;
+	                // if(len > 4){
+	                //     document.getElementById("uploadBtn").style.display = "none";
+	                // }
+	            };
+	            reader.onloadend = function(e) {
+	                $(".delete-image").off('click');
+	                $(".delete-image").on('click',function(){
+	                	// alert("dasd");
+	                    var li = $(this).parent().parent().parent()[0];
+	                    var index = $(".upload-ul .upload-li").index(li);
+	                    var liId = li.id;
+	                    $("#"+liId).remove();
+	                    imgArr.splice(index,1);
+	                    document.getElementById("uploadBtn").style.display = "";
+	                });
+	            }
+	        }
+	    }
+	    
+	    function fileUpload(){
+	        var param = new FormData();
+	        for(var i=0; i<imgArr.length;i++){
+	            param.append('file[]', imgArr[i], i);
+	        }
+	        param.append("orderId", req.id);
+	        param.append("userId", bxUserData.id);
+	        $("body").mLoading("show");
+	        $.ajax({
+	            url:url,
+	            type:'POST',
+	            data:param,
+	            async: false,
+	            cache: false,
+	            contentType: false,
+	            processData: false,
+	            success:function(data){
+	                $("body").mLoading("hide");
+	                
+	            },
+	            error:function(){
+	                $("body").mLoading("hide");
+	                alert(res.description || res.message || "上传失败");
+	            }
+	        });
+		}
+		init();
+	</script>
+</body>
+</html>
