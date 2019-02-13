@@ -14,7 +14,7 @@ html {
     height: 70px;
     line-height: 70px;
 }
-.template-header .template-btn{
+.template-btn{
     position: absolute;
     left: 20px;
 }
@@ -328,6 +328,12 @@ p {
     .aetos-hd {
         height: 150px;
     }
+    .template-btn{
+        left: 0;
+    }
+    .templatebtn{
+        font-size: 6px;
+    }
     .aetos-logo{
         width: 80px;
         height: 80px;
@@ -357,6 +363,12 @@ p {
 @media (min-width: 374px) {
     .aetos-hd {
         height: 150px;
+    }
+    .template-btn{
+        left: 0;
+    }
+    .templatebtn{
+        font-size: 6px;
     }
     .aetos-logo{
         width: 80px;
@@ -388,6 +400,13 @@ p {
 @media (min-width: 547px) {
     .aetos-hd {
         height: 150px;
+    }
+    .template-btn{
+        position: absolute;
+        left: 20px;
+    }
+    .templatebtn{
+        font-size: 16px;
     }
     .aetos-logo{
         width: 100px;
