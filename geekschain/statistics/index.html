@@ -5,9 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
 	<title>Statistic</title>
-	<link rel="stylesheet" href="css/iconfont.css">
-	<link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<!-- <link rel="stylesheet" type="text/css" href="http:////at.alicdn.com/t/font_1008612_c8fx2yhoqzr.css"> -->
+	<link rel="stylesheet" type="text/css" href="http:////at.alicdn.com/t/font_1008612_c8fx2yhoqzr.css">
 	<style type="text/css" media="screen">
 		body{
 			margin: 0;
@@ -38,13 +36,14 @@
 			min-height: 1px;
 			padding: 12px;
 		}
-		.col-1{ width: 16.66%; }
-		.col-2{ width: 25%; }
-		.col-3{ width: 50%; }
-		.col-4{ width: 66.664%; }
-		.col-5{ width: 83.33%; }
-		.col-6{ width: 100%; }
-		
+		@media all and (min-width: 1000px){
+			.col-1{ width: 16.66%; }
+			.col-2{ width: 25%; }
+			.col-3{ width: 50%; }
+			.col-4{ width: 66.664%; }
+			.col-5{ width: 83.33%; }
+			.col-6{ width: 100%; }
+		}
 		@media all and (max-width: 1000px){
 			.col-md-1{ width: 16.66%; }
 			.col-md-2{ width: 33.33%; }
@@ -65,6 +64,9 @@
 
 		/************ 数量统计面板组 *************/
 		.panel{
+			/*height: 300px;
+			margin: 0 auto;
+			padding: 10px;*/
 			padding: 20px 15px 0 15px;
 			background-color: #f0f2f5;			
 		}
@@ -97,6 +99,34 @@
 			font-weight: 700;
 		}
 
+		.iconfont {
+		  font-family: "iconfont" !important;
+		  font-size: 50px;
+		  font-style: normal;
+		  -webkit-font-smoothing: antialiased;
+		  -moz-osx-font-smoothing: grayscale;
+		}
+
+		.icon-saoma:before {
+		  content: "\e9ed";
+		  color: #34bfa3;
+		}
+
+		.icon-qiye:before {
+		  content: "\e605";
+		  color: #40c9c6;
+		}
+
+		.icon-yichang:before {
+		  content: "\e66c";
+		  color: #f4516c;
+		}
+
+		.icon-fafang:before {
+		  content: "\e7af";
+		  color: #36a3f7;
+		}
+
 		/******************** Notice ***************/
 		.notice{
 			position: absolute;
@@ -126,38 +156,6 @@
 	</style>
 </head>
 <body>
-	<!-------------- bootstrap响应式header ---------------->
-	<style type="text/css">
-		.container a{
-			color: #fff;
-		}
-		.container a:hover{
-			background-color: #fff;
-			color: #337ab7;
-		}
-	</style>
-	<header id="header" class="header" style="background-color: #337ab7;">
-		<div class="container">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false">
-					<!-- <span class="sr-only">Toggle navigation</span> -->
-					<span class="icon-bar" style="background-color:#fff;"></span>
-					<span class="icon-bar" style="background-color:#fff;"></span>
-					<span class="icon-bar" style="background-color:#fff;"></span>
-				</button>
-				<a href="https://hangforfreedom.github.io/" title="" class="navbar-brand" ><b>Hang</b></a>
-			</div>
-			<nav id="bs-navbar" class="collapse navbar-collapse" aria-expanded="false" style="height: 1px;">
-				<ul class="nav navbar-nav">
-					<li><a href="https://hangforfreedom.github.io/" >博客</a></li>
-					<li><a href="https://hangforfreedom.github.io/2019/01/15/geekschain-statistics.html" >文章</a></li>
-					<li><a href="https://github.com/HangForFreedom/some-cases/tree/master/geekschain/statistics" >Github</a></li>
-				</ul>
-			</nav>
-		</div>
-	</header>
-
-
 	<div class="dashboard">
 		<!---------- 数量统计面板组 ------->
 		<div class="panel-row">
@@ -219,21 +217,19 @@
 			<div class="panel-chart panel">
 				<div class="row-chart col-3 col-md-6 col-sm-6">
 					<div class="chart-num">
-						<div id="chartNum" style="height: 100%"></div>
+						<div class="myChart" id="chartNum" style="height: 100%"></div>
 					</div>
 				</div>
 				<div class="row-chart  col-3 col-md-6 col-sm-6">
 					<div class="chart-trend">
-						<div id="chartTrend" style="height: 100%"></div>
+						<div class="myChart" id="chartTrend" style="height: 100%"></div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 
-	<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
-	<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" type="text/javascript"></script>
-	<script type="text/javascript" src="https://echarts.baidu.com/gallery/vendors/echarts/echarts.min.js"></script>
+	 <script type="text/javascript" src="https://echarts.baidu.com/gallery/vendors/echarts/echarts.min.js"></script>
 	<script type="text/javascript" src="https://echarts.baidu.com/gallery/vendors/echarts-gl/echarts-gl.min.js"></script>
 	<script type="text/javascript" src="https://echarts.baidu.com/gallery/vendors/echarts-stat/ecStat.min.js"></script>
 	<script type="text/javascript" src="https://echarts.baidu.com/gallery/vendors/echarts/extension/dataTool.min.js"></script>
@@ -265,9 +261,9 @@
 		    legend: {
 		        orient: 'vertical',
 		        left: 'left',
-		        // data:['iphone3','iphone4','iphone5']
 		    },
 		    visualMap: {
+		    	show: false,
 		        min: 0,
 		        max: 2500,
 		        left: 'left',
@@ -275,8 +271,8 @@
 		        text: ['高','低'],           // 文本，默认为数值文本
 		        calculable: true
 		    },
-		    toolbox: {
-		        show: true,
+		    toolbox: {						//  按钮功能
+		        show: false,
 		        orient: 'vertical',
 		        left: 'right',
 		        top: 'center',
@@ -291,15 +287,29 @@
 		            name: '',
 		            type: 'map',
 		            mapType: 'china',
+		            showLegendSymbol: false,//去除地图指示点
 		            roam: false,
 		            label: {
 		                normal: {
-		                    show: true
+		                    show: true,		//显示省份标签
+		                    textStyle: {	//省份字体设置
+                                fontSize: 7,
+                            }
 		                },
-		                emphasis: {
+		                emphasis: {			//鼠标悬浮效果
 		                    show: true
 		                }
 		            },
+		            
+		            itemStyle: {
+                        normal: {
+                             borderColor: '#009fe8',//区域边框颜色
+                        },
+                        emphasis: {
+                            show: true,
+                        }
+                    },
+
 		            data:[
 		                {name: '北京',value: randomData() },
 		                {name: '天津',value: randomData() },
@@ -337,62 +347,6 @@
 		                {name: '澳门',value: randomData() }
 		            ]
 		        },
-		        {
-		            name: '',
-		            type: 'map',
-		            mapType: 'china',
-		            label: {
-		                normal: {
-		                    show: true
-		                },
-		                emphasis: {
-		                    show: true
-		                }
-		            },
-		            data:[
-		                {name: '北京',value: randomData() },
-		                {name: '天津',value: randomData() },
-		                {name: '上海',value: randomData() },
-		                {name: '重庆',value: randomData() },
-		                {name: '河北',value: randomData() },
-		                {name: '安徽',value: randomData() },
-		                {name: '新疆',value: randomData() },
-		                {name: '浙江',value: randomData() },
-		                {name: '江西',value: randomData() },
-		                {name: '山西',value: randomData() },
-		                {name: '内蒙古',value: randomData() },
-		                {name: '吉林',value: randomData() },
-		                {name: '福建',value: randomData() },
-		                {name: '广东',value: randomData() },
-		                {name: '西藏',value: randomData() },
-		                {name: '四川',value: randomData() },
-		                {name: '宁夏',value: randomData() },
-		                {name: '香港',value: randomData() },
-		                {name: '澳门',value: randomData() }
-		            ]
-		        },
-		        {
-		            name: '',
-		            type: 'map',
-		            mapType: 'china',
-		            label: {
-		                normal: {
-		                    show: true
-		                },
-		                emphasis: {
-		                    show: true
-		                }
-		            },
-		            data:[
-		                {name: '北京',value: randomData() },
-		                {name: '天津',value: randomData() },
-		                {name: '上海',value: randomData() },
-		                {name: '广东',value: randomData() },
-		                {name: '台湾',value: randomData() },
-		                {name: '香港',value: randomData() },
-		                {name: '澳门',value: randomData() }
-		            ]
-		        }
 		    ]
 		};;
 		if (option && typeof option === "object") {
@@ -471,7 +425,15 @@
 		if (option && typeof option === "object") {
 		    chartTrend.setOption(option, true);
 		}
-		window.onresize = chartTrend.resize;
+		//单个图标自适应
+		// window.onresize = chartTrend.resize;
+
+
+		//多个图表自适应
+		window.addEventListener("resize", function () {
+        	chartNum.resize(); 
+        	chartTrend.resize();
+     	});
 	</script>
 </body>
 </html>
