@@ -13,9 +13,8 @@
 		}
 		/***************** 总容器 ****************/
 		.dashboard{
-			position: relative;
 			margin: 30px auto;
-			/*height: 1000px;*/
+			padding: 12px;
 			width: 100%;
 			max-width: 1200px;
 			background-color: #f0f2f5;
@@ -63,10 +62,6 @@
 		}
 
 		/************ 数量统计面板组 *************/
-		.panel{
-			padding: 20px 15px 0 15px;
-			background-color: #f0f2f5;			
-		}
 		.panel-card{
 			display: flex;
 			display: -webkit-flex;
@@ -80,13 +75,11 @@
 		}
 		.panel-card-icon{
 			width: 50%;
-			float: left;
 			padding: 29px 0 0 20px;
 			border-radius: 10px;
 		}
 		.panel-card-description{
 			width: 50%;
-			float: right;
 			padding: 20px 20px 0 0;
 		}
 		.panel-card-description .card-text{
@@ -129,19 +122,6 @@
 		.icon-fafang:before {
 		  content: "\e7af";
 		  color: #36a3f7;
-		}
-
-		/******************** Notice ***************/
-		.notice{
-			position: absolute;
-			left: 28px;
-		}
-		.notice i, span{
-			font-size: 14px;
-		}
-		.notice span{
-			color: rgba(0,0,0,.5);
-			font-weight: 600;
 		}
 
 		/*************** 图表面板显示 ***************/
@@ -209,11 +189,6 @@
 					</div>
 				</div>
 			</div>
-		</div>
-
-		<div class="notice">
-			<i class="iconfont icon-yichang"></i>
-			<span>图表出现错乱，请刷新页面</span>
 		</div>
 
 		<!--------- 图表面板显示 --------->
