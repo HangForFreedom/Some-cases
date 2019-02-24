@@ -61,7 +61,6 @@
 			.col-sm-5{ width: 83.33%; }
 			.col-sm-6{ width: 100%; }
 		}
-		/*row 栅格系统*/
 
 		/************ 数量统计面板组 *************/
 		.panel{
@@ -88,7 +87,7 @@
 		.panel-card-description{
 			width: 50%;
 			float: right;
-			padding: 25px 20px 0 0;
+			padding: 20px 20px 0 0;
 		}
 		.panel-card-description .card-text{
 			margin-bottom: 15px;
@@ -357,7 +356,6 @@
 		if (option && typeof option === "object") {
 		    chartNum.setOption(option, true);
 		}
-		// window.onresize = chartNum.resize;
 
 		//            扫码趋势             //
 		var dom = document.getElementById("chartTrend");
@@ -366,7 +364,8 @@
 		option = null;
 		option = {
 		    title: {
-		        text: '扫码趋势'
+		        text: '扫码趋势',
+		        left: 'center'
 		    },
 		    tooltip: {
 		        trigger: 'axis'
@@ -430,9 +429,6 @@
 		if (option && typeof option === "object") {
 		    chartTrend.setOption(option, true);
 		}
-		//单个图标自适应
-		// window.onresize = chartTrend.resize;
-
 
 		//多个图表自适应
 		window.addEventListener("resize", function () {
