@@ -36,15 +36,15 @@
 			min-height: 1px;
 			padding: 12px;
 		}
-		@media all and (min-width: 1000px){
-			.col-1{ width: 16.66%; }
-			.col-2{ width: 25%; }
-			.col-3{ width: 50%; }
-			.col-4{ width: 66.664%; }
-			.col-5{ width: 83.33%; }
-			.col-6{ width: 100%; }
-		}
-		@media all and (max-width: 1000px){
+
+		.col-1{ width: 16.66%; }
+		.col-2{ width: 25%; }
+		.col-3{ width: 50%; }
+		.col-4{ width: 66.664%; }
+		.col-5{ width: 83.33%; }
+		.col-6{ width: 100%; }
+
+		@media all and (max-width: 1200px){
 			.col-md-1{ width: 16.66%; }
 			.col-md-2{ width: 33.33%; }
 			.col-md-3{ width: 50%; }
@@ -52,6 +52,7 @@
 			.col-md-5{ width: 83.33%; }
 			.col-md-6{ width: 100%; }
 		}
+		
 		@media all and (max-width: 608px){
 			.col-sm-1{ width: 16.66%; }
 			.col-sm-2{ width: 33.33%; }
@@ -64,13 +65,14 @@
 
 		/************ 数量统计面板组 *************/
 		.panel{
-			/*height: 300px;
-			margin: 0 auto;
-			padding: 10px;*/
 			padding: 20px 15px 0 15px;
 			background-color: #f0f2f5;			
 		}
 		.panel-card{
+			display: flex;
+			display: -webkit-flex;
+			flex-direction: row;
+			flex-wrap: nowrap;
 			height: 108px;
 			background-color: #fff;
 			box-sizing: border-box;
@@ -78,16 +80,18 @@
 			box-shadow: 4px 4px 40px rgba(0,0,0,.05);
 		}
 		.panel-card-icon{
+			width: 50%;
 			float: left;
-			margin: 29px 0 0 20px;
+			padding: 29px 0 0 20px;
 			border-radius: 10px;
 		}
 		.panel-card-description{
+			width: 50%;
 			float: right;
-			margin: 18px 10px 0 0;
+			padding: 25px 20px 0 0;
 		}
 		.panel-card-description .card-text{
-			margin-bottom: 20px;
+			margin-bottom: 15px;
 			color: rgba(0,0,0,.45);
 			font-size: 16px;
 			font-weight: 600;
